@@ -8,14 +8,13 @@ import os
 load_dotenv()
 import argparse
 
-api_key = os.getenv("OPENAI_API_KEY")
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--task", default="return a list of numbers")
 parser.add_argument("--language", default="python")
 args = parser.parse_args()
 
-llm = OpenAI(openai_api_key=api_key)
+llm = OpenAI()
 
 code_prompt = PromptTemplate(
     input_variables=["task", "language"],
